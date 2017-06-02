@@ -1,4 +1,4 @@
-    
+node('jenkins-slave') {
     stage('checking repo for new branch') {
          
         sh "
@@ -13,3 +13,4 @@
             git -c user.name='Reilly LeFort' -c user.email='rlefort@interset.com' push         
         fi"
     }
+}
