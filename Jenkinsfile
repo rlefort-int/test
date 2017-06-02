@@ -1,10 +1,13 @@
 node('DOCKER_EL7_JDK') {
     
     stage('checking repo for new branch') {
-        
-        git branch: 'Jenkins', url: 'https://github.com/rlefort-int/test/'
-        
-        sh "git ls-remote --heads https://github.com/rlefort-int/test > branches_latest
+         
+        sh "
+        mkdir Jenkins
+        cd Jenkins
+        git clone -b Jenkins https://github.com/rlefort-int/test.git
+        cd test
+        git ls-remote --heads https://github.com/rlefort-int/test > branches_latest
         
         if ! cmp -s branches_list branches_latest; then
             mv branches_latest branches_list
