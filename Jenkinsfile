@@ -6,8 +6,12 @@ node('jenkins-slave') {
         
         sh """"
         if ! cmp -s branches_list branches_latest; 
-        then mv branches_latest branches_list;
-        git clone 
+        then 
+        mv branches_latest branches_list
+        cd /home/jenkins-slave/workspace/test/vagrant
+        git clone -b vagrant --single-branch https://github.com/rlefort-int/test 
+        ./callvagrant 
+        vagrant up
         fi
         """
         
