@@ -14,7 +14,7 @@ node('jenkins-slave') {
                         chmod +x /home/jenkins-slave/workspace/test/vagrant/test/callvgrnt.sh
                         /home/jenkins-slave/workspace/test/vagrant/test/callvgrnt.sh
                         cd /home/jenkins-slave/workspace/test/vagrant/test 
-                        vagrant up
+                        vagrant up --provider=vsphere
                         rm -rf /home/jenkins-slave/workspace/test/vagrant/test
                     fi'''
 
