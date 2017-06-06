@@ -1,7 +1,0 @@
-#The way this will work is you list your host like this                                              
-# Number=(FQDN MEM CPU template_path home_folder compute_pool) eventually will add template choosing,
-#network, datastore, disk size, etc...                                                               
-                                                                                                     
-rl-jen-gen1 1024 1 rlefort/rl-vagrant-template rlefort RnD                       
-rl-jen-gen2 1024 1 rlefort/rl-vagrant-template rlefort RnD                         
-hosts=2
