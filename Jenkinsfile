@@ -9,7 +9,8 @@ node('jenkins-slave') {
                         mv branches_latest branches_list
                         cd /home/jenkins-slave/workspace/test/vagrant
                         git clone -b vagrant --single-branch https://github.com/rlefort-int/test 
-                        ./callvagrant 
+                        mv  /home/jenkins-slave/workspace/test/vagrant/test/confignew  /home/jenkins-slave/workspace/test/vagrant
+                        /home/jenkins-slave/workspace/test/vagrant/callvagrant 
                         vagrant up
                     fi'''
 
