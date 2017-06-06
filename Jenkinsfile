@@ -11,7 +11,7 @@ node('jenkins-slave') {
                         cd /home/jenkins-slave/workspace/test/vagrant
                         git clone -b vagrant --single-branch https://github.com/rlefort-int/test 
                         mv  /home/jenkins-slave/workspace/test/vagrant/test/confignew  /home/jenkins-slave/workspace/test/vagrant
-                        /home/jenkins-slave/workspace/test/vagrant/callvagrant 
+                        /home/jenkins-slave/workspace/test/vagrant/callvagrant.sh 
                         vagrant up
                     fi'''
 
