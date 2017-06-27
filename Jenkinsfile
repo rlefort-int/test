@@ -12,6 +12,6 @@ node('jenkins-node') {
                  echo "no" > build.properties
                fi '''
 environment { branches_changed = readFile 'build.properties' }
- 
+ echo "branches_changed"
  }
 }
