@@ -1,4 +1,4 @@
-node('jenkins-node') {
+node() {
 
   stage('checking repo for new branch') {
     sh"git ls-remote --heads https://github.com/rlefort-int/test > branches_latest"
