@@ -11,7 +11,7 @@ node('jenkins-slave-docker') {
                else
                  echo "no" > build.properties
                fi '''
-environment { branches_changed = readFile 'build.properties' }
- echo "branches_changed"
+    environment { branches_changed = readFile 'build.properties' }
+    echo "${branches_changed}"
  }
 }
