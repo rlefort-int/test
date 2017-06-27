@@ -1,4 +1,4 @@
-node('jenkins-node') {
+node('jenkins-slave-docker') {
 
   stage('checking repo for new branch') {
     sh"git ls-remote --heads https://github.com/rlefort-int/test > branches_latest"
