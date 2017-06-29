@@ -15,7 +15,7 @@ node('jenkins-slave-docker') {
   stage('building vms') {
     sh '''
       branches=$(cat branches)
-      if [$branches == yes]; 
+      if ["$branches" == "yes"]; 
 	then
           echo "BRANCHES CHANGES"
 	else 
