@@ -19,6 +19,7 @@ node('jenkins-slave-docker') {
           echo "BRANCHES CHANGES"
 	else 
 	  echo "No Branch Changes" 
+      fi
       '''
   }
 }
