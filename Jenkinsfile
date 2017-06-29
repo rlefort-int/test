@@ -7,7 +7,7 @@ node('jenkins-slave-docker') {
                then 
                  echo "things changed"
                  mv branches_latest branches_list
-                 branches=yes
+                 ${branch} is yes
 	       else
                  branches=no	
  	  fi'''
