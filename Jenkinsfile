@@ -10,13 +10,13 @@ node('jenkins-slave-docker') {
                  mv branches_latest branches_list
 	         echo "yes" > branches
 	       else
-                 echo "no" > branches
+                echo "things have not changed" 
  	  fi'''
 }
   stage('building vms') {
     sh '''
       branches=$(cat branches)
-      if ["$branches" -eq "yes"]; 
+      if ["$branches" -e ]; 
 	then
           echo "BRANCHES CHANGES"
 	  scp branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
