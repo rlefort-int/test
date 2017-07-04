@@ -8,7 +8,7 @@ node('jenkins-slave-docker') {
 
     sh '''
         DIFF=$(diff branches_list branches_latest)
-	if [ ! -z $DIFF  ];  
+	if [ ! -z "$DIFF"  ];  
                then 
                  echo "things changed"
                  mv branches_latest branches_list
