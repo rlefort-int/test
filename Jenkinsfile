@@ -19,7 +19,7 @@ node('jenkins-slave-docker') {
       if [ -e branches ]; 
 	then
           echo "BRANCHES CHANGES"
-	  scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
+	  scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
 	else 
 	  echo "No Branch Changes" 
       fi
