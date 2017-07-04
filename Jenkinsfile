@@ -1,13 +1,15 @@
 node('jenkins-slave-docker') {
 
   stage('checking repo for new branch') {
+    
+    #getting branches_latest and comparing against old branches_list
     sh"git ls-remote --heads https://github.com/rlefort-int/test > branches_latest"
     
-    sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test"
+    sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test/"
 
     sh '''
 	git clone -b branches https://github.com/rlefort-int/test
-	if ! cmp -s branches_list branches_latest; 
+	if [ ! cmp -s branches_list branches_latest ]  
                then 
                  echo "things changed"
                  mv branches_latest branches_list
