@@ -16,7 +16,7 @@ node('jenkins-slave-docker') {
                 echo "things have not changed" 
  	  fi'''
 }
-  stage('building vms') {
+  stage('building vms and updating branches_list') {
     sh '''
       branches=$(cat branches)
       if [ -n "$branches" ]; 
@@ -24,6 +24,15 @@ node('jenkins-slave-docker') {
           echo "BRANCHES CHANGES"
 	  git ls-remote --heads https://github.com/rlefort-int/test > branches_list
 	  scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
+          
+          git clone -b vagrant https://github.com/rlefort-int/test
+	  cd vagrant
+	  ./callvagrnt.sh
+	  vagrant up          
+	  vagrant destroy
+
+
+
 	else 
 	  echo "ideally jenkins already failed this script" 
       fi
