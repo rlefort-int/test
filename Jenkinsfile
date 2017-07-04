@@ -2,6 +2,9 @@ node('jenkins-slave-docker') {
 
   stage('checking repo for new branch') {
     sh"git ls-remote --heads https://github.com/rlefort-int/test > branches_latest"
+    
+    sh "cat /home/jenkins/.ssh/id_rsa"
+
     sh '''
 	git clone -b branches https://github.com/rlefort-int/test
 	if ! cmp -s branches_list branches_latest; 
