@@ -8,7 +8,8 @@ node('jenkins-slave-docker') {
 
     sh '''
 	git clone -b branches https://github.com/rlefort-int/test
-	if [ ! cmp -s branches_list branches_latest ]  
+        DIFF=$(diff branches_list branches_latest)
+	if [ ! -s $DIFF  ]  
                then 
                  echo "things changed"
                  mv branches_latest branches_list
