@@ -2,7 +2,7 @@ node('jenkins-slave-docker') {
 
   stage('checking repo for new branch') {
     
-    sh"git ls-remote --heads https://github.com/rlefort-int/test > branches_latest"
+    sh'''git ls-remote --heads https://github.com/rlefort-int/test > branches_latest'''
     
     sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test/"
 
