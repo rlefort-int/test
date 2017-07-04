@@ -7,7 +7,6 @@ node('jenkins-slave-docker') {
     sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test/"
 
     sh '''
-	git clone -b branches https://github.com/rlefort-int/test
         DIFF=$(diff branches_list branches_latest)
 	if [ ! -s $DIFF  ]  
                then 
