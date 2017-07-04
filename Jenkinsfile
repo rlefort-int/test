@@ -26,6 +26,7 @@ node('jenkins-slave-docker') {
 	  scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
           
           git clone -b vagrant https://github.com/rlefort-int/test
+	  chmod -R 777 test
 	  cd test
 	  ./callvagrnt.sh
 	  vagrant up          
