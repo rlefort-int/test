@@ -7,8 +7,7 @@ node('jenkins-slave-docker') {
     sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test/"
 
     sh '''
-        DIFF=$(diff branches_list branches_latest)
-	if [ ! -z "$DIFF"  ];  
+	if ! diff -q branches_list branches_latest &>/dev/null; 
                then 
                  echo "things changed"
                  mv branches_latest branches_list
