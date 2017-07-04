@@ -19,6 +19,7 @@ node('jenkins-slave-docker') {
       if ["$branches" -eq "yes"]; 
 	then
           echo "BRANCHES CHANGES"
+	  scp branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
 	else 
 	  echo "No Branch Changes" 
       fi
