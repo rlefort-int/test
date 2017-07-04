@@ -16,7 +16,7 @@ node('jenkins-slave-docker') {
   stage('building vms') {
     sh '''
       branches=$(cat branches)
-      if ["$branches" -e ]; 
+      if [ -e branches ]; 
 	then
           echo "BRANCHES CHANGES"
 	  scp branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
