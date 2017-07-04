@@ -25,7 +25,7 @@ node('jenkins-slave-docker') {
 	  git ls-remote --heads https://github.com/rlefort-int/test > branches_list
 	  scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
 	else 
-	  echo "No Branch Changes" 
+	  echo "ideally jenkins already failed this script" 
       fi
       '''
   }
