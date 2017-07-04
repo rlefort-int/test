@@ -6,8 +6,6 @@ node('jenkins-slave-docker') {
     
     sh "scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins-node@rl-jenkins2:/home/jenkins-node/branches_list /home/jenkins/workspace/test/"
     
-    sh "diff branches_list branches_latest" 
-
     sh '''
 	if ! diff -q branches_list branches_latest; 
                then 
@@ -24,6 +22,7 @@ node('jenkins-slave-docker') {
       if [ -n "$branches" ]; 
 	then
           echo "BRANCHES CHANGES"
+	  git ls-remote --heads https://github.com/rlefort-int/test > branches_list
 	  scp -i /home/jenkins/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no branches_list jenkins-node@rl-jenkins2:/home/jenkins-node/
 	else 
 	  echo "No Branch Changes" 
