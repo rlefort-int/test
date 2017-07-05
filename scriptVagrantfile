@@ -22,7 +22,7 @@ config.vm.define "sed!!" do |sed!!|
       vsphere.user = 'rlefort@ad.interset.com'
 
       # vSphere password
-      vsphere.password = '*****'
+      vsphere.password = 'PASSWORD'
 
       # If you don't have SSL configured correctly, set this to 'true'
       vsphere.insecure = true
