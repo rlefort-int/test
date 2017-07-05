@@ -28,6 +28,7 @@ node('jenkins-slave-docker') {
           git clone -b vagrant https://github.com/rlefort-int/test
 	  chmod -R 777 /home/jenkins/workspace/test/test
 	  cd /home/jenkins/workspace/test/test
+	  whoami
 	  ./callvgrnt.sh
 	  vagrant up --provider=vsphere          
 	  vagrant destroy
