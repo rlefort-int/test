@@ -31,8 +31,8 @@ node('jenkins-slave-docker') {
 	  chmod -R 777 /home/jenkins/workspace/test/test
 	  whoami
 	  ./callvgrnt.sh
-	  vagrant up --provider=vsphere          
-	  vagrant destroy
+	  sudo vagrant up --provider=vsphere          
+	  sudo vagrant destroy
 
 
 
