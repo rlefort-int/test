@@ -31,11 +31,7 @@ node('jenkins-slave-docker') {
 	  chmod -R 777 /home/jenkins/workspace/test/test
 	  whoami
 	  ./callvgrnt.sh
-	  sudo vagrant up --provider=vsphere           
-	  vagrant destroy
-
-
-
+	  sleep 100000
 	else 
 	  echo "ideally jenkins already failed this script" 
       fi
