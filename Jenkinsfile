@@ -31,7 +31,7 @@ node('jenkins-slave-docker') {
 	  chmod -R 777 /home/jenkins/workspace/test/test
 	  whoami
 	  ./callvgrnt.sh
-	  docker checkpoint create
+	  sleep 100
 	else 
 	  echo "ideally jenkins already failed this script" 
       fi
