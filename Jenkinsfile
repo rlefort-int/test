@@ -1,3 +1,4 @@
+#!groovy
 node('jenkins-docker-vagrant') {
 
   stage('checking repo for new branch') {
