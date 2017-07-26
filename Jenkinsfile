@@ -1,5 +1,5 @@
 #!groovy
-node('jenkins-docker-vagrant') {
+docker.label('jenkins-docker-vagrant').inside {
 
   stage('checking repo for new branch') {
     
