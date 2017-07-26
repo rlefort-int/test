@@ -1,5 +1,4 @@
 #!groovy
-docker.withServer('tcp://127.0.0.1:4243', 'FYFJ:WDVI:ATQW:W4C5:42YA:ZVU3:RU4F:UQLB:Z3ST:F246:HTVE:SFFA')
 docker.image('jenkins-docker-vagrant').inside {
 
   stage('checking repo for new branch') {
