@@ -3,6 +3,6 @@
 # Number=(FQDN MEM CPU template_path home_folder compute_pool) eventually will add template choosing,
 #network, datastore, disk size, etc...                                                               
                                                                                                      
-qa-auto-test-datanode55 1024 1 rlefort/rl-vagrant-template-100gb rlefort RnD                       
-qa-auto-test-clientnode55 1024 1 rlefort/rl-vagrant-template-100gb rlefort RnD                         
+qa-auto-test-datanode55 8192 2 rlefort/rl-vagrant-template-100gb rlefort RnD                       
+qa-auto-test-clientnode55 8192 2 rlefort/rl-vagrant-template-100gb rlefort RnD                         
 hosts=2
